@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <script src="https://unpkg.com/htmx.org"></script>
+  <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
+  <script src="https://unpkg.com/mustache@latest"></script>
+</head>
+<body>
+  <div hx-ext="client-side-templates">
+    <button hx-get="/api/"
+            hx-swap="innerHTML"
+            hx-target="#content"
+            mustache-template="info">
+      Click Me
+    </button>
+
+    <p id="content">Start</p>
+
+    <template id="info">
+      <p> {% raw %}{{@id}}{% endraw %} and {% raw %}{{@type}}{% endraw %} and {% raw %}{{description}}{% endraw %}</p>
+    </template>
+  </div>
+</body>
+</html>
