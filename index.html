@@ -14,13 +14,15 @@
             hx-swap="innerHTML"
             hx-target="#content"
             mustache-template="info">
-      Click Me
+      Click To Pull Information from Demo Plone Site
     </button>
 
     <p id="content">Start</p>
 
     <template id="info">
-      <p> {{@id}} and {@type}} and {{description}}</p>
+      <p> The end point is:{{@id}}</p>
+     <p>{{@type}}</p>
+<p>And here's a quick description: {{description}}</p>
     </template>
   </div>
 </body>
