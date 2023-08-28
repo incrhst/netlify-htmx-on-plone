@@ -37,12 +37,14 @@
 
     </script>
 <script id="blocks" type="nunjucks">
-    {% for block in block_layout.items %}
+    {% for blockId in block_layout.items %}
       <li>
-        <a href="{{block}}">{{block}}</a><br>
+   ID: {{ blockId }}</p>
+                <p>Type: {{ blocks[blockId].@type }}</p>
+
       </li>
     {% endfor %}
-      If the admin has set a portrait, it iwll show here
+      If the admin has set a portrait, it will show here
       <img src="/api/@portrait/admin" />
   </script>
   </div>
