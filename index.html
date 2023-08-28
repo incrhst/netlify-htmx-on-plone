@@ -17,7 +17,7 @@
             mustache-template="info">
       Click To Pull Information from Demo Plone Site
     </button>
-    <button hx-get="/api"
+    <button hx-get="/api/"
             hx-swap="innerHTML"
             hx-target="#content"
             handlebars-template="blocks">
@@ -26,7 +26,7 @@
 
 
 
-    <p id="content">Start</p>
+    <p id="content">We'll swap things out here</p>
 
     <template id="info">
       <p> The end point is:{{@id}}</p>
@@ -38,7 +38,7 @@
     <script id="blocks_layout_partial" type="text/x-handlebars-template">
       <div>
         <ul>
-            {{#each items}}
+            {{#each blocks_layout.items}}
                 <li>ID: {{this}}</li>
             {{/each}}
         </ul>
