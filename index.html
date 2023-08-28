@@ -33,11 +33,13 @@
 <p>And here's a quick description: {{description}}</p>
     </template>
     <template id="blocks">
-<p>
-{{#blocks}}
-{{@type}}
-{{/blocks}}
-</p>
+{{#blocks_layout.items}}
+ <div class="block">
+        <p>ID: {{.}}</p>
+        <p>Type: {{blocks.[.]}}</p>
+    </div>
+{{/blocks_layout.items}}
+If the admin has set a portrait, it iwll show here
       <img src="/api/@portrait/admin" />
     </template>
   </div>
