@@ -16,6 +16,14 @@
             mustache-template="info">
       Click To Pull Information from Demo Plone Site
     </button>
+    <button hx-get="/api/@portrait/admin"
+            hx-swap="innerHTML"
+            hx-target="#content"
+>
+      Get the admin portrait (only works if there is one set on the demo site
+    </button>
+
+
 
     <p id="content">Start</p>
 
