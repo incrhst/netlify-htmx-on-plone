@@ -8,6 +8,7 @@
   <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
   <script src="https://unpkg.com/handlebars@latest"></script>
   <script src="https://unpkg.com/mustache@latest"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nunjucks/3.0.1/nunjucks.min.js"></script>
 </head>
 <body>
   <div hx-ext="client-side-templates">
@@ -20,7 +21,7 @@
     <button hx-get="/api/"
             hx-swap="innerHTML"
             hx-target="#content"
-            handlebars-template="blocks">
+            nunjucks-template="blocks">
       Get some block information
     </button>
 
@@ -33,30 +34,19 @@
      <p>What is this?: A {{@type}}</p>
 <p>And here's a quick description: {{description}}</p>
     </template>
-  </div>
 
-    <script id="blocks_layout_partial" type="text/x-handlebars-template">
-      <div>
-        <ul>
-            {{#each blocks_layout.items}}
-                <li>ID: {{this}}</li>
-            {{/each}}
-        </ul>
+    </script>
+<script id="blocks" type="nunjucks">
+    {% for block in block_layout.items %}
+      <li>
+        <a href="{{block}}">{{block}}</a><br>
+      </li>
+    {% endfor %}
       If the admin has set a portrait, it iwll show here
       <img src="/api/@portrait/admin" />
-      </div>
-    </script>
-
-
-    <script>
-
-        // Retrieve the partial template
-        const partialTemplate = document.getElementById("blocks_layout_partial").innerHTML;
-
-        // Register the partial
-        Handlebars.registerPartial('blocks_layout', partialTemplate);
-
-    </script>
+  </script>
+  </div>
+  
 </body>
 </html>
 
