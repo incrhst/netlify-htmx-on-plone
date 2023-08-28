@@ -10,6 +10,8 @@
 </head>
 <body>
   <div hx-ext="client-side-templates">
+    <button hx-post="/api/@login">
+
     <button hx-get="/api/"
             hx-swap="innerHTML"
             hx-target="#content"
@@ -31,7 +33,11 @@
       <p> The end point is:{{@id}}</p>
      <p>What is this?: A {{@type}}</p>
 <p>And here's a quick description: {{description}}</p>
-<p>{{@components.breadcrumbs.@id}}</p>
+<p>
+{{#@blocks}}
+{{@type}}
+{{/@blocks}}
+</p>
     </template>
     <template id="portrait">
       <img src="/api/@portrait/admin" />
