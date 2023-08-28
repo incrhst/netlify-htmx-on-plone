@@ -19,7 +19,7 @@
     <button hx-get="/api/@portrait/admin"
             hx-swap="innerHTML"
             hx-target="#content"
->
+            mustache-template="portrait">
       Get the admin portrait (only works if there is one set on the demo site
     </button>
 
@@ -32,6 +32,9 @@
      <p>What is this?: A {{@type}}</p>
 <p>And here's a quick description: {{description}}</p>
 <p>{{@components.breadcrumbs.@id}}</p>
+    </template>
+    <template id="portrait">
+      <img src="/api/@portrait/admin" />
     </template>
   </div>
 </body>
