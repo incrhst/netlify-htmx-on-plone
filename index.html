@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>JS Bin</title>
+  <title>HTMX on Plone - Plone HOP</title>
   <script src="https://unpkg.com/htmx.org"></script>
   <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
   <script src="https://unpkg.com/handlebars@latest"></script>
-  <script src="https://unpkg.com/mustache@latest"></script>
+  <script src="https://unpkg.com/nunjucks@latest"></script>
+<!--
 <script src="https://cdnjs.cloudflare.com/ajax/libs/nunjucks/3.0.1/nunjucks.min.js"></script>
+-->
 </head>
 <body>
   <div hx-ext="client-side-templates">
@@ -22,7 +24,7 @@
             hx-swap="innerHTML"
             hx-target="#content"
             nunjucks-template="blocks">
-      Get some block information
+      Get block and test portrait retrieval
     </button>
 
 
