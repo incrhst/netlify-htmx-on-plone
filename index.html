@@ -31,13 +31,13 @@
       <p> The end point is:{{@id}}</p>
      <p>What is this?: A {{@type}}</p>
 <p>And here's a quick description: {{description}}</p>
-<p>
-{{#@blocks}}
-{{@type}}
-{{/@blocks}}
-</p>
     </template>
     <template id="blocks">
+<p>
+{{#blocks}}
+{{@type}}
+{{/blocks}}
+</p>
       <img src="/api/@portrait/admin" />
     </template>
   </div>
