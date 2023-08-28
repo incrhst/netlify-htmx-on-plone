@@ -6,20 +6,20 @@
   <title>JS Bin</title>
   <script src="https://unpkg.com/htmx.org"></script>
   <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
-  <script src="https://unpkg.com/mustache@latest"></script>
+  <script src="https://unpkg.com/handlebars@latest"></script>
 </head>
 <body>
   <div hx-ext="client-side-templates">
     <button hx-get="/api/"
             hx-swap="innerHTML"
             hx-target="#content"
-            mustache-template="info">
+            handlebars-template="info">
       Click To Pull Information from Demo Plone Site
     </button>
     <button hx-get="/api"
             hx-swap="innerHTML"
             hx-target="#content"
-            mustache-template="blocks">
+            handlebars-template="blocks">
       Get some block information
     </button>
 
@@ -33,12 +33,12 @@
 <p>And here's a quick description: {{description}}</p>
     </template>
     <template id="blocks">
-{{#blocks_layout.items}}
- <div class="block">
-        <p>ID: {{.}}</p>
-        <p>Type: {{blocks.[.]}}</p>
+{{#each blocks_layout.items}}
+    <div class="block">
+        <p>ID: {{this}}</p>
+        <p>Type: {{lookup blocks this}}</p>
     </div>
-{{/blocks_layout.items}}
+{{/each}}
 If the admin has set a portrait, it iwll show here
       <img src="/api/@portrait/admin" />
     </template>
