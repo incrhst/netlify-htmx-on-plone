@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width">
   <title>HTMX on Plone - Plone HOP</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <script src="https://unpkg.com/htmx.org"></script>
   <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
   <script src="https://unpkg.com/nunjucks@latest"></script>
@@ -15,13 +18,15 @@
 </head>
 <body>
   <div hx-ext="client-side-templates">
-    <button hx-get="/api/"
+    <button class="pure-button pure-button-primary"
+             hx-get="/api/"
             hx-swap="innerHTML"
             hx-target="#content"
             mustache-template="info">
       Click To Pull Information from Demo Plone Site
     </button>
-    <button hx-get="/api/"
+    <button class="pure-button pure-button-primary"
+            hx-get="/api/"
             hx-swap="innerHTML"
             hx-target="#content"
             nunjucks-template="blocks">
