@@ -1,50 +1,49 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>HTMX on Plone - Plone HOP</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+    integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <script src="https://unpkg.com/htmx.org"></script>
   <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
   <script src="https://unpkg.com/nunjucks@latest"></script>
   <script src="https://unpkg.com/mustache@latest"></script>
-<!--
+  <!--
 <script src="https://cdnjs.cloudflare.com/ajax/libs/nunjucks/3.0.1/nunjucks.min.js"></script>
 -->
 </head>
+
 <body>
-  <div hx-ext="client-side-templates">
-    <button class="pure-button pure-button-primary"
-             hx-get="/api/"
-            hx-swap="innerHTML"
-            hx-target="#content"
-            mustache-template="info">
-      Click To Pull Information from Demo Plone Site
-    </button>
-    <button class="pure-button pure-button-primary"
-            hx-get="/api/"
-            hx-swap="innerHTML"
-            hx-target="#content"
-            nunjucks-template="blocks">
-      Get block and test portrait retrieval
-    </button>
+  <div class="content-wrapper">
+    <div class="content">
+      <div hx-ext="client-side-templates">
+        <button class="pure-button pure-button-primary" hx-get="/api/" hx-swap="innerHTML" hx-target="#content"
+          mustache-template="info">
+          Click To Pull Information from Demo Plone Site
+        </button>
+        <button class="pure-button pure-button-primary" hx-get="/api/" hx-swap="innerHTML" hx-target="#content"
+          nunjucks-template="blocks">
+          Get block and test portrait retrieval
+        </button>
 
 
 
-    <p id="content">We'll swap things out here</p>
+        <p id="content">We'll swap things out here</p>
 
-    <template id="info">
-      <p> The end point is:{{@id}}</p>
-     <p>What is this?: A {{@type}}</p>
-<p>And here's a quick description: {{description}}</p>
-    </template>
+        <template id="info">
+          <p> The end point is:{{@id}}</p>
+          <p>What is this?: A {{@type}}</p>
+          <p>And here's a quick description: {{description}}</p>
+        </template>
 
-    </script>
-<script id="blocks" type="nunjucks">
+        </script>
+        <script id="blocks" type="nunjucks">
     {% for blockId in blocks_layout.items %}
       <li>
    ID: {{ blockId }}</p>
@@ -55,8 +54,10 @@
       If the admin has set a portrait, it will show here
       <img src="/api/@portrait/admin" />
   </script>
-  </div>
-  
-</body>
-</html>
+      </div>
+      <div>
+      </div>
 
+</body>
+
+</html>
